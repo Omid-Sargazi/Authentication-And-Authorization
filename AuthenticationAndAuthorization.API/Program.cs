@@ -4,6 +4,7 @@ using AuthenticationAndAuthorization.API.Controllers;
 using Microsoft.EntityFrameworkCore;
 // using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
+using System.Security.Claims;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -21,20 +22,22 @@ builder.Services.AddScoped<IAuthService, AuthService>();
 
 
 
-// builder.Services.AddAuthentication("Bearer")
-//     .AddJwtBearer("Bearer", options =>
-//     {
-//         options.TokenValidationParameters = new TokenValidationParameters
-//         {
-//             ValidateIssuer = true,
-//             ValidateAudience = true,
-//             ValidateLifetime = true,
-//             ValidateIssuerSigningKey = true,
-//             ValidIssuer = builder.Configuration["Jwt:Issuer"],
-//             ValidAudience = builder.Configuration["Jwt:Audience"],
-//             IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]!))
-//         };
-//     });
+builder.Services.AddAuthentication("Bearer")
+    .AddJwtBearer("Bearer", options =>
+    {
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuer = true,
+            ValidateAudience = true,
+            ValidateLifetime = true,
+            ValidateIssuerSigningKey = true,
+            ValidIssuer = builder.Configuration["Jwt:Issuer"],
+            ValidAudience = builder.Configuration["Jwt:Audience"],
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]!))
+        };
+    });
+
+builder.Services.AddAuthorization();
 
 // مجوزها
 builder.Services.AddControllers();
@@ -93,5 +96,19 @@ app.Use(async (context, next) =>
     Console.WriteLine($"Request: {context.Request.Path}");
     await next();
 });
+
+app.MapGet("/public", () => "this is a public API");
+
+app.MapGet("/profile", (ClaimsPrincipal user) =>
+{
+    return $"hello:{user.Identity.Name ?? "User"}, wellcome to profile";
+
+}).RequireAuthorization();
+
+app.MapGet("/admin", (ClaimsPrincipal user) =>
+{
+    return $"you entered as a manager:{user.Identity?.Name}";
+
+}).RequireAuthorization(policy => policy.RequireRole("Admin"));
 
 app.Run();
