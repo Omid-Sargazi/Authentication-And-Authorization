@@ -17,15 +17,15 @@ namespace AuthenticationAndAuthorization.API.AuthDemo.Application.Services
             _configuration = configuration;
             _context = context;
         }
-        public Task<AuthResult> LoginRequest(LoginRequest request)
-        {
-            throw new NotImplementedException();
-        }
+
+        
 
         public async Task<AuthResult> RegisterAsync(RegisterRequest request)
         {
             if (_context.Users.Any(u => u.Email == request.Email))
                 throw new Exception("Email already registered.");
+
+
             var user = new User
             {
                 Email = request.Email,
@@ -34,6 +34,7 @@ namespace AuthenticationAndAuthorization.API.AuthDemo.Application.Services
             };
             _context.Users.Add(user);
             await _context.SaveChangesAsync();
+
             return GenerateToken(user);
         }
 
@@ -56,11 +57,11 @@ namespace AuthenticationAndAuthorization.API.AuthDemo.Application.Services
             };
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]!));
-            var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
             var expires = DateTime.UtcNow.AddMinutes(60);
+            var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
-            var token = new JwtSecurityToken(
-                issuer: _configuration["Jwt:Issure"],
+           var token = new JwtSecurityToken(
+                issuer: _configuration["Jwt:Issuer"],
                 audience: _configuration["Jwt:Audience"],
                 claims: claims,
                 expires: expires,
