@@ -1,6 +1,8 @@
+using AuthenticationAndAuthorization.API.AuthDemo;
 using AuthenticationAndAuthorization.API.AuthDemo.Application.Services;
 using AuthenticationAndAuthorization.API.AuthDemo.Infrastructure.Auth;
 using AuthenticationAndAuthorization.API.Controllers;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
 // using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
@@ -37,7 +39,15 @@ builder.Services.AddAuthentication("Bearer")
         };
     });
 
-builder.Services.AddAuthorization();
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("HROnly", policy => policy.RequireClaim("Department", "HR"));
+    options.AddPolicy("CanViewOrders", policy => policy.RequireClaim("Permission", "ViewOrders"));
+    options.AddPolicy("HRAdminOnly", policy => policy.Requirements.Add(new HRAndManageUsersRequirement()));
+});
+
+
+builder.Services.AddSingleton<IAuthorizationHandler, HRAndManageUsersHandler>();
 
 // مجوزها
 builder.Services.AddControllers();
@@ -110,5 +120,20 @@ app.MapGet("/admin", (ClaimsPrincipal user) =>
     return $"you entered as a manager:{user.Identity?.Name}";
 
 }).RequireAuthorization(policy => policy.RequireRole("Admin"));
+
+app.MapGet("/hr-dashboard", () =>
+{
+    return "welcome HR Member";
+}).RequireAuthorization("HROnly");
+
+app.MapGet("/orders/view", () =>
+{
+    return "Order List:";
+}).RequireAuthorization("CanViewOrders");
+
+app.MapGet("/hr-admin-area", () =>
+{
+    return "Welcome HR Admin";
+}).RequireAuthorization("HRAdminOnly");
 
 app.Run();
