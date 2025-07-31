@@ -1,3 +1,4 @@
+using AuthenticationAndAuthorization.API.AuthDemo.Application.Services;
 using AuthenticationAndAuthorization.API.AuthDemo.Infrastructure.Auth;
 using Microsoft.EntityFrameworkCore;
 
@@ -9,6 +10,8 @@ builder.Services.AddOpenApi();
 
 builder.Services.AddDbContext<AuthDbContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("AuthConnection")));
+
+builder.Services.AddScoped<IAuthService, AuthService>();
 
 var app = builder.Build();
 
