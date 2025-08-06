@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthenticationAndAuthorizat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RabbitMQ.ProducerDemo", "RabbitMQ.ProducerDemo\RabbitMQ.ProducerDemo.csproj", "{A3FDE6AF-4B54-4E4E-80A9-2D5516E8A158}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RabbitMQ.ConsumerDemo", "RabbitMQ.ConsumerDemo\RabbitMQ.ConsumerDemo.csproj", "{F74734A7-2CE8-4546-84E9-CFCB9C6E006F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{A3FDE6AF-4B54-4E4E-80A9-2D5516E8A158}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A3FDE6AF-4B54-4E4E-80A9-2D5516E8A158}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A3FDE6AF-4B54-4E4E-80A9-2D5516E8A158}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F74734A7-2CE8-4546-84E9-CFCB9C6E006F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F74734A7-2CE8-4546-84E9-CFCB9C6E006F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F74734A7-2CE8-4546-84E9-CFCB9C6E006F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F74734A7-2CE8-4546-84E9-CFCB9C6E006F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
