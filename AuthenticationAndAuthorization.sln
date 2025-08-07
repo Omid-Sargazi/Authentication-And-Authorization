@@ -15,6 +15,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RabbitMQ.RetryDemo", "Rabbi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RabbitMQ.RetryCountDemo", "RabbitMQ.RetryCountDemo\RabbitMQ.RetryCountDemo.csproj", "{24FF072D-C1C1-4146-8722-F0F175FBD254}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RedisPeojets", "RedisPeojets", "{7AD6C5A2-346D-48BC-B0A5-7DFFC81A3172}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedisDay4", "RedisPeojets\RedisDay4\RedisDay4.csproj", "{A28C5108-67FA-4754-9ECD-99850808CEA4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -48,5 +52,12 @@ Global
 		{24FF072D-C1C1-4146-8722-F0F175FBD254}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{24FF072D-C1C1-4146-8722-F0F175FBD254}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{24FF072D-C1C1-4146-8722-F0F175FBD254}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A28C5108-67FA-4754-9ECD-99850808CEA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A28C5108-67FA-4754-9ECD-99850808CEA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A28C5108-67FA-4754-9ECD-99850808CEA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A28C5108-67FA-4754-9ECD-99850808CEA4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A28C5108-67FA-4754-9ECD-99850808CEA4} = {7AD6C5A2-346D-48BC-B0A5-7DFFC81A3172}
 	EndGlobalSection
 EndGlobal
