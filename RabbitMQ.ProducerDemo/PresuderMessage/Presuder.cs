@@ -30,7 +30,7 @@ namespace RabbitMQ.ProducerDemo.PresuderMessage
 
 
             channel.BasicPublish(exchange: "",
-                routingKey: "my-queue",
+                routingKey: "main-queue",
                 basicProperties: null,
                 body: body
             );
