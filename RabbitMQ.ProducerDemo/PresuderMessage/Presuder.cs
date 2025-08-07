@@ -18,6 +18,18 @@ namespace RabbitMQ.ProducerDemo.PresuderMessage
             using var connection = factory.CreateConnection();
             using var channel = connection.CreateModel();
 
+            string exchange = "main-exchange";
+            string routingKey = "main-queue";
+
+
+            var props = channel.CreateBasicProperties();
+            props.Headers = new Dictionary<string, object>
+            {
+                { "x-retry", 0 }
+            };
+
+
+
             // channel.QueueDeclare(queue: "my-queue",
             //     durable: false,
             //     exclusive: false,
@@ -25,13 +37,13 @@ namespace RabbitMQ.ProducerDemo.PresuderMessage
             //     arguments: null
             // );
 
-            string message = "Hello RabbitMQ with an error";
+            string message = "error:needs retry error";
             var body = Encoding.UTF8.GetBytes(message);
 
 
-            channel.BasicPublish(exchange: "",
-                routingKey: "main-queue",
-                basicProperties: null,
+            channel.BasicPublish(exchange,
+                routingKey,
+                basicProperties: props,
                 body: body
             );
 

@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RabbitMQ.DLQDemo", "RabbitM
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RabbitMQ.RetryDemo", "RabbitMQ.RetryDemo\RabbitMQ.RetryDemo.csproj", "{348A4EB6-AD84-4823-8B12-AE2DB1B1033B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RabbitMQ.RetryCountDemo", "RabbitMQ.RetryCountDemo\RabbitMQ.RetryCountDemo.csproj", "{24FF072D-C1C1-4146-8722-F0F175FBD254}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,5 +44,9 @@ Global
 		{348A4EB6-AD84-4823-8B12-AE2DB1B1033B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{348A4EB6-AD84-4823-8B12-AE2DB1B1033B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{348A4EB6-AD84-4823-8B12-AE2DB1B1033B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{24FF072D-C1C1-4146-8722-F0F175FBD254}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24FF072D-C1C1-4146-8722-F0F175FBD254}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24FF072D-C1C1-4146-8722-F0F175FBD254}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24FF072D-C1C1-4146-8722-F0F175FBD254}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
