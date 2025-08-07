@@ -18,14 +18,14 @@ namespace RabbitMQ.ProducerDemo.PresuderMessage
             using var connection = factory.CreateConnection();
             using var channel = connection.CreateModel();
 
-            channel.QueueDeclare(queue: "my-queue",
-                durable: false,
-                exclusive: false,
-                autoDelete: false,
-                arguments: null
-            );
+            // channel.QueueDeclare(queue: "my-queue",
+            //     durable: false,
+            //     exclusive: false,
+            //     autoDelete: false,
+            //     arguments: null
+            // );
 
-            string message = "Hello RabbitMQ";
+            string message = "Hello RabbitMQ with an error";
             var body = Encoding.UTF8.GetBytes(message);
 
 

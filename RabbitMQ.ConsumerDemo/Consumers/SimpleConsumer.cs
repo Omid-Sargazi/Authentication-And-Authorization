@@ -36,6 +36,10 @@ namespace RabbitMQ.ConsumerDemo.Consumers
 
                 try
                 {
+                    if (message.Contains("error"))
+                    {
+                        throw new Exception("simulation an error");
+                    }
                     Console.WriteLine(" ✅ Message processed.");
                     channel.BasicAck(deliveryTag: ea.DeliveryTag, multiple: false);
                 }
