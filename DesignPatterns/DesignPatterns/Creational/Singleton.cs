@@ -1,6 +1,6 @@
 namespace DesignPatterns.Creational
 {
-    public class Singleton
+    public sealed class Singleton
     {
         private static readonly Lazy<Singleton> _instance = new(() => new Singleton());
         private Singleton()
