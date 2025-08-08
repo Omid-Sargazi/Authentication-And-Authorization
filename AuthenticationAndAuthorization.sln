@@ -23,6 +23,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataStructuresAlgorithms", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataStructuresAlgorithms", "DataStructuresAlgorithms\DataStructuresAlgorithms\DataStructuresAlgorithms.csproj", "{FC91F20D-DD81-440E-8F0E-FB1E2FA2031A}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DesignPatterns", "DesignPatterns", "{E7911FDC-4E7B-414E-BE0A-E53905380472}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesignPatterns", "DesignPatterns\DesignPatterns\DesignPatterns.csproj", "{6F07DB38-84CA-45D8-9D89-EC1D410ED1FD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -64,9 +68,14 @@ Global
 		{FC91F20D-DD81-440E-8F0E-FB1E2FA2031A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FC91F20D-DD81-440E-8F0E-FB1E2FA2031A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FC91F20D-DD81-440E-8F0E-FB1E2FA2031A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F07DB38-84CA-45D8-9D89-EC1D410ED1FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F07DB38-84CA-45D8-9D89-EC1D410ED1FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F07DB38-84CA-45D8-9D89-EC1D410ED1FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F07DB38-84CA-45D8-9D89-EC1D410ED1FD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{A28C5108-67FA-4754-9ECD-99850808CEA4} = {7AD6C5A2-346D-48BC-B0A5-7DFFC81A3172}
 		{FC91F20D-DD81-440E-8F0E-FB1E2FA2031A} = {4CE7AF5B-B4D3-41CC-BD39-10C7BBECEE83}
+		{6F07DB38-84CA-45D8-9D89-EC1D410ED1FD} = {E7911FDC-4E7B-414E-BE0A-E53905380472}
 	EndGlobalSection
 EndGlobal
