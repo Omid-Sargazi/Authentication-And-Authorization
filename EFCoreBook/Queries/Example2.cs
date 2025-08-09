@@ -61,10 +61,22 @@ namespace EFCoreBook.Queries
             }
             sw.Stop();
             Console.WriteLine($"Elapsed: {sw.ElapsedMilliseconds} ms");
-                
 
 
-            
+
+            //===============================================
+            sw.Reset();
+            sw.Start();
+            var allCustomersEager = context.Customers.Include(c => c.Orders)
+            .ToList();
+
+            foreach (var c in allCustomersEager)
+            {
+                Console.WriteLine($"Customer: {c.Name}, Orders: {c.Orders.Count}");
+            }
+
+            sw.Stop();
+            Console.WriteLine($"Elapsed: {sw.ElapsedMilliseconds} ms");
 
         }
     }
