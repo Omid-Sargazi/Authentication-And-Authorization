@@ -89,8 +89,30 @@ namespace EFCoreBook.Queries
             {
                 Console.WriteLine($"Customer: {c.Name}, Orders: {c.Orders.Count}");
             }
-             sw.Stop();
+            sw.Stop();
             Console.WriteLine($"Elapsed: {sw.ElapsedMilliseconds} ms");
+
+            sw.Reset();
+            sw.Start();
+
+            var consumerQuerySpliting = context.Customers
+            .AsSplitQuery()
+            .Include(c => c.Orders)
+            .ThenInclude(o => o.Items)
+            .ToList();
+
+            foreach (var c in consumerQuerySpliting)
+            {
+                Console.WriteLine($"Customer: {c.Name}, Orders: {c.Orders.Count}");
+            }
+
+            sw.Stop();
+            Console.WriteLine($"Elapsed: {sw.ElapsedMilliseconds} ms");
+
+            
+
+
+
 
 
 
