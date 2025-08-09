@@ -17,11 +17,12 @@ namespace EFCoreBook.Queries
 
             var options = new DbContextOptionsBuilder<AppDbContext>()
             .UseInMemoryDatabase("PerfDemoDb")
+            .UseLazyLoadingProxies()
             .Options;
 
             using var context = new AppDbContext(options);
             var customers = SeedData.GenerateCustomers(customers: 50, ordersPerCustomer: 5, itemsPerOrder: 5);
-              
+
             context.Customers.AddRange(customers);
             context.SaveChanges();
 
@@ -29,6 +30,17 @@ namespace EFCoreBook.Queries
             Console.WriteLine($"Customers in DB: {context.Customers.Count()}");
             Console.WriteLine($"Orders in DB: {context.Orders.Count()}");
             Console.WriteLine($"Items in DB: {context.Items.Count()}");
+
+
+            var allCustomers = context.Customers.ToList();
+            foreach (var c in allCustomers)
+            {
+                Console.WriteLine($"Customer:{c.Name},Order:{c.Orders.Count}");
+            }
+            
+
+
+
 
 
 
