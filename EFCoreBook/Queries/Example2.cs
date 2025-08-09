@@ -78,6 +78,22 @@ namespace EFCoreBook.Queries
             sw.Stop();
             Console.WriteLine($"Elapsed: {sw.ElapsedMilliseconds} ms");
 
+            sw.Reset();
+            sw.Start();
+            var allCustomersAsNoTracking = context.Customers
+            .AsNoTracking()
+            .Include(c => c.Orders)
+            .ToList();
+
+            foreach (var c in allCustomersAsNoTracking)
+            {
+                Console.WriteLine($"Customer: {c.Name}, Orders: {c.Orders.Count}");
+            }
+             sw.Stop();
+            Console.WriteLine($"Elapsed: {sw.ElapsedMilliseconds} ms");
+
+
+
         }
     }
 
