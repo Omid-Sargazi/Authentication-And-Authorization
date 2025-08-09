@@ -27,6 +27,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DesignPatterns", "DesignPat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesignPatterns", "DesignPatterns\DesignPatterns\DesignPatterns.csproj", "{6F07DB38-84CA-45D8-9D89-EC1D410ED1FD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFCoreBook", "EFCoreBook\EFCoreBook.csproj", "{237C1C5F-BB74-47C8-A3FE-4EB5574686DC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -72,6 +74,10 @@ Global
 		{6F07DB38-84CA-45D8-9D89-EC1D410ED1FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6F07DB38-84CA-45D8-9D89-EC1D410ED1FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6F07DB38-84CA-45D8-9D89-EC1D410ED1FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{237C1C5F-BB74-47C8-A3FE-4EB5574686DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{237C1C5F-BB74-47C8-A3FE-4EB5574686DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{237C1C5F-BB74-47C8-A3FE-4EB5574686DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{237C1C5F-BB74-47C8-A3FE-4EB5574686DC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{A28C5108-67FA-4754-9ECD-99850808CEA4} = {7AD6C5A2-346D-48BC-B0A5-7DFFC81A3172}
